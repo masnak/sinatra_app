@@ -1,8 +1,7 @@
 # coding: utf-8
 #require "enpit/birthday/version"
+require 'wikipedia'
 
-module Enpit
-  module Birthday
     #　入力の初期値
     year = 2000
     month = 12
@@ -10,6 +9,7 @@ module Enpit
     
     # 入力部
     def input
+      print 'Please set your birthday!'
       print 'Set year : '
       while year = gets.chomp.to_i
         if year < 1000 || year > 3000 then
@@ -41,8 +41,9 @@ module Enpit
     end
     
     # wikipedia呼び出し部
-    def wikipedia(year, month, day)
-    
+    def wikipedia(year, month, day) 
+        page_year = Wikipedia.find(year)
+        return page_year.content[1,1000]
     end
     
     # twitter呼び出し部
@@ -54,9 +55,8 @@ module Enpit
     def output
       
     end
-
-    module_function :input
-  end
-  Birthday.input
-end
+ 
+  # メソッド呼び出し部
+  input
+  puts wikipedia(year, month, day)
 
