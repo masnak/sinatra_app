@@ -9,6 +9,7 @@ require 'wikipedia'
     
     # 入力部
     def input
+      print 'Please set your birthday!'
       print 'Set year : '
       while year = gets.chomp.to_i
         if year < 1000 || year > 3000 then
@@ -42,7 +43,7 @@ require 'wikipedia'
     # wikipedia呼び出し部
     def wikipedia(year, month, day) 
         page_year = Wikipedia.find(year)
-        return page_year.title.[1,1000]
+        return page_year.content[1,1000]
     end
     
     # twitter呼び出し部
@@ -54,9 +55,8 @@ require 'wikipedia'
     def output
       
     end
-
-    module_function :input
-  end
-  Birthday.input
+ 
+  # メソッド呼び出し部
+  input
   puts wikipedia(year, month, day)
 
