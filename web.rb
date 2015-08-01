@@ -1,6 +1,6 @@
 require 'open-uri'
 require 'sinatra'
-# require "sinatra/reloader" if development?
+require "sinatra/reloader" if development?
 require 'json'
 
 helpers do
@@ -37,13 +37,11 @@ get '/' do
         </li>
       <% end %>
       </ul>
-<!--   
        <script type='text/jacascript'>
         setTimeout(function(){
           document.location.reload();
         }, 1000 * 60 * 10);
       </script>
- -->
 
     </body>
     </html>
