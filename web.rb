@@ -9,7 +9,7 @@ helpers do
   def recent_repos
     url = "https://api.github.com/search/" +
           "repositories?q=sinatra&sort=updated"
-    data = JSON.Parse(open(url).read)
+    data = JSON.parse(open(url).read)
 
     data["items"]
   end
