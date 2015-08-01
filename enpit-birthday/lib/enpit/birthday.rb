@@ -1,4 +1,4 @@
-require "enpit/birthday/version"
+#require "enpit/birthday/version"
 
 module Enpit
   module Birthday
