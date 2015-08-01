@@ -1,6 +1,6 @@
 require 'open-uri'
 require 'sinatra'
-require "sinatra/reloader" if development?
+# require "sinatra/reloader" if development?
 require 'json'
 
 helpers do
@@ -8,8 +8,8 @@ helpers do
 
   def recent_repos
     url = "https://api.github.com/search/" +
-          "repositries?q=sinatra&sort=updated"
-    data = JSON.Perse(open(url).read)
+          "repositories?q=sinatra&sort=updated"
+    data = JSON.Parse(open(url).read)
 
     data["items"]
   end
@@ -37,11 +37,14 @@ get '/' do
         </li>
       <% end %>
       </ul>
-      <script type='text/jacascript'>
+<!--   
+       <script type='text/jacascript'>
         setTimeout(function(){
           document.location.reload();
         }, 1000 * 60 * 10);
       </script>
+ -->
+
     </body>
     </html>
   }
